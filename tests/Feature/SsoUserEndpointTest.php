@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Laravel\Passport\Passport;
 use Tests\TestCase;
 
 class SsoUserEndpointTest extends TestCase
@@ -18,7 +17,7 @@ class SsoUserEndpointTest extends TestCase
             'email' => 'via@example.com',
         ]);
 
-        Passport::actingAs($user, ['profile']);
+        $this->actingAs($user);
 
         $this->getJson('/api/user')
             ->assertOk()
@@ -36,7 +35,7 @@ class SsoUserEndpointTest extends TestCase
             'email' => 'via@example.com',
         ]);
 
-        Passport::actingAs($user, ['profile', 'email']);
+        $this->actingAs($user);
 
         $this->getJson('/api/user')
             ->assertOk()

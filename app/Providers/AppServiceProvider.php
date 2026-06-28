@@ -21,11 +21,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Passport::tokensCan([
-            'profile' => 'Melihat identitas dasar akun ViaAccount.',
-            'email' => 'Melihat alamat email akun ViaAccount.',
+            'profile' => 'Melihat profil akun',
+            'email' => 'Melihat alamat email',
+            'users.read' => 'Lookup users',
         ]);
 
-        Passport::defaultScopes(['profile']);
-        Passport::authorizationView('auth.oauth.authorize');
+        Passport::authorizationView(
+            'auth.oauth.authorize'
+        );
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\UserLookupController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,7 @@ Route::middleware('auth:api')->get('/userinfo', function (Request $request) {
         'picture' => $user->avatar,
     ];
 })->name('api.userinfo');
+
+Route::middleware([
+    'auth:api'
+])->get('/users', UserLookupController::class);

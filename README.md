@@ -7,36 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## ViaAccount SSO
+## ViaAccount
 
-ViaAccount sudah disiapkan sebagai OAuth2 SSO provider menggunakan Laravel Passport.
-
-Endpoint utama:
-
-- `GET /oauth/authorize` untuk meminta izin login dari user.
-- `POST /oauth/token` untuk menukar authorization code menjadi access token.
-- `GET /api/user` untuk mengambil profil user dengan bearer token.
-- `GET /api/userinfo` untuk format profil yang umum dipakai client SSO.
-
-Scope yang tersedia:
-
-- `profile` untuk identitas dasar user. Scope ini menjadi default.
-- `email` untuk mengizinkan client membaca email user.
-
-Setup awal di environment baru:
-
-```bash
-php artisan migrate
-php artisan passport:keys
-php artisan passport:client --authorization-code
-```
-
-Masukkan callback URL aplikasi client saat membuat OAuth client. Di aplikasi client, gunakan flow Authorization Code:
-
-1. Redirect user ke `/oauth/authorize` dengan `client_id`, `redirect_uri`, `response_type=code`, dan `scope=profile email`.
-2. Setelah user login dan menyetujui akses, ViaAccount mengirim `code` ke `redirect_uri`.
-3. Client menukar `code` ke `/oauth/token` memakai `client_id`, `client_secret`, `redirect_uri`, dan `grant_type=authorization_code`.
-4. Client memanggil `/api/user` atau `/api/userinfo` dengan header `Authorization: Bearer <access_token>`.
+ViaAccount adalah aplikasi Laravel yang menggunakan Fortify untuk otentikasi.
 
 ## About Laravel
 
