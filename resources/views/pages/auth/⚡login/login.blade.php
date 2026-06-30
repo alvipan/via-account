@@ -1,21 +1,13 @@
-<div class="flex items-center justify-center min-h-screen">
-    <flux:card class="w-full max-w-md">
+<div class="flex min-h-screen items-center justify-center">
+    <flux:card class="w-full max-w-sm">
 
-        <flux:heading size="lg" class="font-semibold mb-6">Masuk ViaAccount</flux:heading>
+        <flux:heading size="lg" class="mb-6 font-semibold">Masuk ViaAccount</flux:heading>
 
         <form wire:submit="login" class="space-y-4">
 
-            <flux:input
-                label="Email"
-                wire:model="email"
-                type="email"
-            />
+            <flux:input label="Email" wire:model="email" type="email" />
 
-            <flux:input
-                label="Katasandi"
-                wire:model="password"
-                type="password"
-            />
+            <flux:input label="Katasandi" wire:model="password" type="password" />
 
             <div class="flex justify-end text-sm">
                 <flux:link variant="subtle" href="/forgot-password" wire:navigate>

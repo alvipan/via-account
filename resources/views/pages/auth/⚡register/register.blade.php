@@ -1,7 +1,7 @@
-<div class="flex items-center justify-center min-h-screen">
-    <flux:card class="w-full max-w-md">
+<div class="flex min-h-screen items-center justify-center">
+    <flux:card class="w-full max-w-sm">
 
-        <flux:heading size="lg" class="font-semibold mb-6">Register ViaAccount</flux:heading>
+        <flux:heading size="lg" class="mb-6 font-semibold">Register ViaAccount</flux:heading>
 
         <form wire:submit="register" class="space-y-4">
 
